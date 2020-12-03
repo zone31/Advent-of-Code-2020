@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import sys
 import os
+import sys
 
 #######################Helping functions###########################
 
@@ -29,9 +29,7 @@ def solver_1star(d):
 
 
 def solver_2star(d):
-    """
-    Same as first star, but with another number
-    """
+    """Same as first star, but with another number."""
     target = 2020
     for index_a, a in enumerate(d):
         for index_b, b in enumerate(d[index_a:]):

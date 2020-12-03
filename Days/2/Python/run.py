@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-import sys
 import os
 import re
+import sys
 from collections import namedtuple
 
 #######################Helping functions###########################
@@ -10,7 +10,7 @@ Entry = namedtuple('Entry', 'min max target data')
 
 
 def data_parser(filepath):
-    """Parse the data by splitting each line into a number."""
+    """Parse the data by splitting each line, and doing a regular expression."""
     pattern = r'(.*)-(.*) (.): (.*)'
     prog = re.compile(pattern)
 
@@ -23,9 +23,7 @@ def data_parser(filepath):
 
 
 def solver_1star(d):
-    """
-    Simply count the amount of elements, and mark them valid if min <= x <= max
-    """
+    """Simply count the amount of elements, and mark them valid if min <= x <= max."""
     valid_count = 0
     for entry in d:
         if entry.min <= entry.data.count(entry.target) <= entry.max:
@@ -35,9 +33,7 @@ def solver_1star(d):
 
 
 def solver_2star(d):
-    """
-    Find the index of the elements, and compare them with xor to the target letter
-    """
+    """Find the index of the elements, and compare them with xor to the target letter."""
     valid_count = 0
     for entry in d:
         a = entry.data[entry.min - 1]
