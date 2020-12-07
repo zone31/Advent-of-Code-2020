@@ -19,8 +19,9 @@ def bording_pass_parse(value):
     The values seating are represented binary, where the first 7 are
     the row values, and the last 3 are the column.
     """
-    row = int(value[:7].replace('F', '0').replace('B', '1'), 2)
-    col = int(value[7:].replace('L', '0').replace('R', '1'), 2)
+    translate = str.maketrans('FBLR', '0101')
+    row = int(value[:7].translate(translate), 2)
+    col = int(value[7:].translate(translate), 2)
     id = row * 8 + col
     return {'row': row, 'col': col, 'id': id}
 
