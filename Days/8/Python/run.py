@@ -97,6 +97,13 @@ def main():
     return (solver_1star(d), solver_2star(d))
 
 
+def day_name():
+    """Get the date name from the folder."""
+    file_path = os.path.dirname(__file__)
+    day_path = os.path.normpath(os.path.join(file_path, '..'))
+    return os.path.basename(day_path)
+
+
 if __name__ == "__main__":
     star1, star2 = main()
     if len(sys.argv) == 2:
@@ -106,7 +113,8 @@ if __name__ == "__main__":
         elif arg == '2':
             print(star2)
     else:
-        print("Day 1 first star:")
+        day = day_name()
+        print(f"Day {day} first star:")
         print(star1)
-        print("Day 1 second star:")
+        print(f"Day {day} second star:")
         print(star2)
